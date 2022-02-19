@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "f188fdff-4652-491c-9f45-0ce749872c58",
+		"name": "Tasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks: Get All Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/tasks",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks: New Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const res = pm.response;",
+							"",
+							"if (res.code === 201) {",
+							"    const data = res.json().data;",
+							"",
+							"    pm.environment.set('taskID', data._id)",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"task\": \"Clean Shoes\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/tasks/new",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"tasks",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks: Update Task",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/tasks/{{taskID}}?completed=",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"tasks",
+						"{{taskID}}"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "",
+							"description": "Values can only be 0 or 1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks: Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/tasks/{{taskID}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"tasks",
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks: Find Task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/tasks/task?search=",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"tasks",
+						"task"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
