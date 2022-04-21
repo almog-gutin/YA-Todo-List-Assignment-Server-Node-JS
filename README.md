@@ -6,7 +6,7 @@
   <p align="center">
     This server-side application is part of the Y&A Todo List assingment built with Node.js and JavaScript. 
   </p>
-    <a href="https://www.postman.com/almog-gutin/workspace/y-a-todo-list-assignment">View Postman Files</a>
+    <a href="https://www.postman.com/almoggutin/workspace/y-a-todo-list-assignment/overview">View Postman Files</a>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -52,7 +52,7 @@ It is built with Node.js and Express Framework with Javascript. In addition, the
 **Git clone**
 
 ```
-git clone https://github.com/almog-gutin/YA-Todo-List-Assignment-Server-Node-JS.git
+git clone https://github.com/almoggutin/YA-Todo-List-Assignment-Server-Node-JS.git
 ```
 
 **Instructions**
